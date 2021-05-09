@@ -1,3 +1,7 @@
+% Authors: He "Crane" Chen, Misha Kazhdan
+% hchen136@jhu.edu
+% Johns Hopkins University, 2021
+
 close all;
 n = 16;
 f = ones(n, 1);

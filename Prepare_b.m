@@ -1,4 +1,8 @@
-u_exact = imread('DSCF4864.JPG');
+% Authors: He "Crane" Chen, Misha Kazhdan
+% hchen136@jhu.edu
+% Johns Hopkins University, 2021
+
+u_exact = imread('./Data/DSCF4864.JPG');
 u_exact = rgb2gray(u_exact);
 u_exact = double(u_exact);
 
@@ -32,7 +36,7 @@ end
 
 figure(1)
 imshow(b)
-writematrix(b,'b.txt');
+writematrix(b,'./Data/b.txt');
 
 
 u = zeros(h+2, w+2);

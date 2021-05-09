@@ -1,3 +1,8 @@
+% Authors: He "Crane" Chen, Misha Kazhdan
+% hchen136@jhu.edu
+% Johns Hopkins University, 2021
+% This code implements Jacobi method in 3D, when grid size dx, dy, dz
+% of finite elements are not equal
 function u1 = jacobi3Dv2(u0, b, dx, dy, dz)
     n_interval = size(b, 1) - 1;
     u1 = ((dx^2 * dy^2 * dz^2) / (2*(dx^2 + dy^2 + dz^2))) * b;

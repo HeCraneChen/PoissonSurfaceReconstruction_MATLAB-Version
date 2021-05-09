@@ -1,3 +1,8 @@
+% Authors: He "Crane" Chen, Misha Kazhdan
+% hchen136@jhu.edu
+% Johns Hopkins University, 2021
+% This code implements Gauss-Seidel method
+
 function u1 = gauss(u0, b)
     n_interval_y = size(b, 1) - 1;
     n_interval_x = size(b, 2) - 1;

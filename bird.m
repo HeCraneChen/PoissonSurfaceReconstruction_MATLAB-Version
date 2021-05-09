@@ -1,3 +1,7 @@
+% Authors: He "Crane" Chen, Misha Kazhdan
+% hchen136@jhu.edu
+% Johns Hopkins University, 2021
+
 % This script is written and read by pdetool and should NOT be edited.
 % There are two recommended alternatives:
 % 1) Export the required variables from pdetool and create a MATLAB script

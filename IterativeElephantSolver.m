@@ -1,8 +1,11 @@
+% Authors: He "Crane" Chen, Misha Kazhdan
+% hchen136@jhu.edu
+% Johns Hopkins University, 2021
 % solving th 2D Poisson equation for elephant example d2u/dx2 + d2u/dy2 = V
 
 %% step1 data prep
 
-elephant = readmatrix('elephant.2D.txt');
+elephant = readmatrix('./Data/elephant.2D.txt');
 elephant = elephant(:, 1:4);
 X = elephant(:,1);
 Y = elephant(:,2);

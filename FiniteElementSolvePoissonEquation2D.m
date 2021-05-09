@@ -1,7 +1,11 @@
+% Authors: He "Crane" Chen, Misha Kazhdan
+% hchen136@jhu.edu
+% Johns Hopkins University, 2021
+
 % Visualizing finite element 2D basis functions
-p = readmatrix('p.txt'); % x, y coordinates of points
-t = readmatrix('t.txt'); % first three rows: index of three vertices of each triangle, last row: index of the domain
-e = readmatrix('e.txt'); % outside boundary edges, only used to identify which points lie on the boundary
+p = readmatrix('./Data/p.txt'); % x, y coordinates of points
+t = readmatrix('./Data/t.txt'); % first three rows: index of three vertices of each triangle, last row: index of the domain
+e = readmatrix('./Data/e.txt'); % outside boundary edges, only used to identify which points lie on the boundary
 i_boundary = unique([e(1,:), e(2,:)]);
 figure(1)
 trimesh(t(1:3,:)', p(1,:), p(2,:));

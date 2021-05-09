@@ -1,3 +1,7 @@
+% Authors: He "Crane" Chen, Misha Kazhdan
+% hchen136@jhu.edu
+% Johns Hopkins University, 2021
+
 function [u1] = multigrid3Dv2(u0, b, dx, dy, dz)
     n_interval = size(b, 1) - 1;
     % presmoothing

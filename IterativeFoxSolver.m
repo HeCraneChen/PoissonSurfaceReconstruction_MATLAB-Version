@@ -1,8 +1,11 @@
+% Authors: He "Crane" Chen, Misha Kazhdan
+% hchen136@jhu.edu
+% Johns Hopkins University, 2021
 % solving th 3D Poisson equation for elephant example d2u/dx2 + d2u/dy2 + d2u/dz2 = V
 
 %% step1 data prep
 
-fox = readmatrix('fox.txt');
+fox = readmatrix('./Data/fox.txt');
 fox = fox(:, 1:6);
 X = fox(:,1);
 Y = fox(:,2);
@@ -98,7 +101,7 @@ heatmap(slice2);
 figure(3)
 heatmap(slice3);
 
-save('indicator_function.mat', 'output');
+save('./Data/indicator_function.mat', 'output');
 
 
 

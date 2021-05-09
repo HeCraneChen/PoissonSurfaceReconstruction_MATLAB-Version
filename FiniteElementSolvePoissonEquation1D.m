@@ -1,3 +1,7 @@
+% Authors: He "Crane" Chen, Misha Kazhdan
+% hchen136@jhu.edu
+% Johns Hopkins University, 2021
+
 % This code solves the Poisson equation d2u/dx2 + 1 = 0, with 10 elements by finite
 % element method, choose hat functions as basis
 n = 10;

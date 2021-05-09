@@ -1,4 +1,8 @@
-b = readmatrix('b.txt');
+% Authors: He "Crane" Chen, Misha Kazhdan
+% hchen136@jhu.edu
+% Johns Hopkins University, 2021
+
+b = readmatrix('./Data/b.txt');
 figure(1)
 imshow(b)
 
