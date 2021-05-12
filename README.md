@@ -8,4 +8,4 @@ Download data from the following link, Unzip it into the code folder, so that al
 https://drive.google.com/drive/folders/1kKZinGw09bzwPw-0wMcZhhJJJDEZAMEu?usp=sharing
 
 # Some Results
-<img src="https://github.com/HeCraneChen/Multi-person-3D-Pose-Estimation-in-Crowded-Scenes-Based-on-Multi-View-Geometry/blob/master/doc/wild_track.png" width="960">
+
