@@ -58,6 +58,7 @@ Reconstructed
 Version1 (run IterativeFoxSolver_v1) --res 128 --iter 10
 
 Ground truth grid
+![gt_v1](https://user-images.githubusercontent.com/33951209/118333359-6bc93100-b4c0-11eb-973d-6d7ea3dd30ee.jpg)
 
 Numerical Error (gt_grid - output/ mean(output, 'all') * mean(gt_grid, 'all'))
 
