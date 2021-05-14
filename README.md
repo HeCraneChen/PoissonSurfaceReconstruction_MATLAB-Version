@@ -25,19 +25,19 @@ Open3D
 
 # Some Results in 2D
 
-Direct (run ElephantSolver.m)
+Direct (run ElephantSolver.m) --res 128 
 
 ![Elephant_Direct](https://user-images.githubusercontent.com/33951209/118314648-441a9e80-b4a9-11eb-8a5c-9facee7713b0.jpg)
 
-Jacobi (run IterativeElephantSolver.m)
+Jacobi (run IterativeElephantSolver.m) --res 128 --iter 100 
 
 ![Elephant_Jacobi](https://user-images.githubusercontent.com/33951209/118314707-5a285f00-b4a9-11eb-8cad-3a0bdd397b08.jpg)
 
-Gauss-Seidel (run IterativeElephantSolver.m)
+Gauss-Seidel (run IterativeElephantSolver.m) --res 128 --iter 100 
 
 ![Elephant_GaussSeidel](https://user-images.githubusercontent.com/33951209/118314722-5e547c80-b4a9-11eb-8ed1-23798654f402.jpg)
 
-Multigrid (run IterativeElephantSolver.m)
+Multigrid (run IterativeElephantSolver.m) --res 128 --iter 10
 
 ![Elephant_Multigrid](https://user-images.githubusercontent.com/33951209/118314731-614f6d00-b4a9-11eb-901b-0e36b06052f9.jpg)
 
