@@ -41,6 +41,12 @@ Multigrid (run IterativeElephantSolver.m) --res 128 --iter 10
 
 ![Elephant_Multigrid](https://user-images.githubusercontent.com/33951209/118314731-614f6d00-b4a9-11eb-901b-0e36b06052f9.jpg)
 
+Ground truth grid
+![gt_grid](https://user-images.githubusercontent.com/33951209/118325601-8c8d8880-b4b8-11eb-80d0-9e194c620c38.jpg)
+
+Numerical Error (gt_grid - output)
+
+![num_error](https://user-images.githubusercontent.com/33951209/118325677-a4650c80-b4b8-11eb-8e9a-4c3446f55c9e.jpg)
 
 
 # Some Results in 3D (Slices)
