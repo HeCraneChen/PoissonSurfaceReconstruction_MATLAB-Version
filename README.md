@@ -24,7 +24,7 @@ Open3D
 
 
 # Some Results in 2D
-<img src="https://github.com/HeCraneChen/PoissonSurfaceReconstruction_MATLAB-Version⁩/Results⁩/Elephant_Direct.jpg" width="960">
+<img src="https://github.com/HeCraneChen/PoissonSurfaceReconstruction_MATLAB-Version/Results/Elephant_Direct.jpg" width="960">
 
 
 # Some Results in 3D
