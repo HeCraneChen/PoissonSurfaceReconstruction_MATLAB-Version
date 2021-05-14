@@ -66,9 +66,10 @@ Numerical Error (gt_grid - output/ mean(output, 'all') * mean(gt_grid, 'all'))
 Version2 (run IterativeFoxSolver_v2) --res 128 --iter 10
 
 Ground truth grid
+![gt_v2](https://user-images.githubusercontent.com/33951209/118334771-18a4ad80-b4c3-11eb-8c99-78e090b31331.jpg)
 
 Numerical Error (gt_grid - output/ mean(output, 'all') * mean(gt_grid, 'all'))
-
+![error_v2](https://user-images.githubusercontent.com/33951209/118334784-1e01f800-b4c3-11eb-895d-5b6b9a00c3a0.jpg)
 
 Version3 (run IterativeFoxSolver_v3) --res 128 --iter 10
 
@@ -82,9 +83,9 @@ Numerical Error (gt_grid - output/ mean(output, 'all') * mean(gt_grid, 'all'))
 Version1 (run IterativeFoxSolver_v1, run MarchingCube.py, isovalue = 4.3222e-11) --res 128 --iter 10  
 ![surface1](https://user-images.githubusercontent.com/33951209/118334142-d7f86480-b4c1-11eb-8c47-375facd6e6ac.jpg)
 
-Version2 (run IterativeFoxSolver_v2, run MarchingCube.py, isovalue = ) --res 128 --iter 10
+Version2 (run IterativeFoxSolver_v2, run MarchingCube.py, isovalue = 1.3747e-15) --res 128 --iter 10
+![surface2](https://user-images.githubusercontent.com/33951209/118334747-0cb8eb80-b4c3-11eb-95be-cf48a242506f.jpg)
 
-
-Version3 (run IterativeFoxSolver_v3, run MarchingCube.py, isovalue = ) --res 128 --iter 10
+Version3 (run IterativeFoxSolver_v3, run MarchingCube.py, isovalue = 6.0054e-11) --res 128 --iter 10
 
 
