@@ -80,7 +80,7 @@ Numerical Error (gt_grid - output/ mean(output, 'all') * mean(gt_grid, 'all'))
 # Some Results in 3D (The surface after marching cubes)
 
 Version1 (run IterativeFoxSolver_v1) --res 128 --iter 10
-
+![surface1](https://user-images.githubusercontent.com/33951209/118333790-2fe29b80-b4c1-11eb-9d6b-f3641744ce87.jpg)
 
 Version2 (run IterativeFoxSolver_v2) --res 128 --iter 10
 
