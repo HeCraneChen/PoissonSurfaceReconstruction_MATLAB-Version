@@ -52,9 +52,10 @@ isovalue = -8.4444e-04
 
 # Some Results in 3D (Slices)
 
-Version1 (run IterativeFoxSolver_v1) --res 128 --iter 10
-
 Reconstructed
+
+
+Version1 (run IterativeFoxSolver_v1) --res 128 --iter 10
 
 Ground truth grid
 
@@ -63,16 +64,12 @@ Numerical Error (gt_grid - output/ mean(output, 'all') * mean(gt_grid, 'all'))
 
 Version2 (run IterativeFoxSolver_v2) --res 128 --iter 10
 
-Reconstructed
-
 Ground truth grid
 
 Numerical Error (gt_grid - output/ mean(output, 'all') * mean(gt_grid, 'all'))
 
 
 Version3 (run IterativeFoxSolver_v3) --res 128 --iter 10
-
-Reconstructed
 
 Ground truth grid
 
