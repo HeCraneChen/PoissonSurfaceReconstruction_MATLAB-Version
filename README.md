@@ -43,4 +43,7 @@ Multigrid (run IterativeElephantSolver.m)
 
 
 
-# Some Results in 3D
+# Some Results in 3D (Slices)
+
+# Some Results in 3D (The surface by marching cubes)
+
