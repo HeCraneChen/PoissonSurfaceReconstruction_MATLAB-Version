@@ -74,9 +74,10 @@ Numerical Error (gt_grid - output/ mean(output, 'all') * mean(gt_grid, 'all'))
 Version3 (run IterativeFoxSolver_v3) --res 128 --iter 10
 
 Ground truth grid
+![gt_v3](https://user-images.githubusercontent.com/33951209/118335706-12afcc00-b4c5-11eb-8b17-97c68a0c5b08.jpg)
 
 Numerical Error (gt_grid - output/ mean(output, 'all') * mean(gt_grid, 'all'))
-
+![error_v3](https://user-images.githubusercontent.com/33951209/118335719-193e4380-b4c5-11eb-89c1-36328b18e28e.jpg)
 
 # Some Results in 3D (The surface after marching cubes)
 
@@ -87,5 +88,6 @@ Version2 (run IterativeFoxSolver_v2, run MarchingCube.py, isovalue = 1.3747e-15)
 ![surface2](https://user-images.githubusercontent.com/33951209/118334747-0cb8eb80-b4c3-11eb-95be-cf48a242506f.jpg)
 
 Version3 (run IterativeFoxSolver_v3, run MarchingCube.py, isovalue = 6.0054e-11) --res 128 --iter 10
+![surface3](https://user-images.githubusercontent.com/33951209/118335803-47bc1e80-b4c5-11eb-9c7c-17248f58be32.jpg)
 
 
