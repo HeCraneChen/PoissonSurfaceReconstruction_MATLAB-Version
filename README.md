@@ -53,7 +53,7 @@ isovalue = -8.4444e-04
 # Some Results in 3D (Slices)
 
 Reconstructed
-
+![reconstruted](https://user-images.githubusercontent.com/33951209/118333176-260c6880-b4c0-11eb-88e6-d9fb7dd49b08.jpg)
 
 Version1 (run IterativeFoxSolver_v1) --res 128 --iter 10
 
