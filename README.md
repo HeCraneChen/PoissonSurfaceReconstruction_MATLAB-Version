@@ -48,6 +48,7 @@ Numerical Error (gt_grid - output/ mean(output, 'all') * mean(gt_grid, 'all'))
 
 ![num_error](https://user-images.githubusercontent.com/33951209/118326157-6fa58500-b4b9-11eb-954b-f0b240353ff8.jpg)
 
+isovalue = -8.4444e-04
 
 # Some Results in 3D (Slices)
 
