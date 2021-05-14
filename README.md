@@ -29,15 +29,15 @@ Direct (run ElephantSolver.m)
 
 ![Elephant_Direct](https://user-images.githubusercontent.com/33951209/118314648-441a9e80-b4a9-11eb-8a5c-9facee7713b0.jpg)
 
-Jacobi
+Jacobi (run IterativeElephantSolver.m)
 
 ![Elephant_Jacobi](https://user-images.githubusercontent.com/33951209/118314707-5a285f00-b4a9-11eb-8cad-3a0bdd397b08.jpg)
 
-Gauss-Seidel
+Gauss-Seidel (run IterativeElephantSolver.m)
 
 ![Elephant_GaussSeidel](https://user-images.githubusercontent.com/33951209/118314722-5e547c80-b4a9-11eb-8ed1-23798654f402.jpg)
 
-Multigrid
+Multigrid (run IterativeElephantSolver.m)
 
 ![Elephant_Multigrid](https://user-images.githubusercontent.com/33951209/118314731-614f6d00-b4a9-11eb-901b-0e36b06052f9.jpg)
 
