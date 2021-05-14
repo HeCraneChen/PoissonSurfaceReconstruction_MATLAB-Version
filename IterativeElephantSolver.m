@@ -1,6 +1,3 @@
-% Authors: He "Crane" Chen, Misha Kazhdan
-% hchen136@jhu.edu
-% Johns Hopkins University, 2021
 % solving th 2D Poisson equation for elephant example d2u/dx2 + d2u/dy2 = V
 
 %% step1 data prep
@@ -110,6 +107,40 @@ output = reshape(u, [n_basis, n_basis]);
 output = output';
 heatmap(output);
 
+%% step5 numerical error measurement
+% try sth. like, visualizing the ground truth elephant in the same figure,
+% and measure the isovalues around the surface
+gt_grid = zeros(n_basis, n_basis);
+for point_ind = 1:size(elephant,1)
+    point = elephant(point_ind, :);
+    x = point(1);
+    y = point(2);
+    nx = point(3);
+    ny = point(4);
+    for i = 1:n_basis
+        if x >= min(X) + gridsize_x * (i-1) & x < min(X) + gridsize_x * i
+            for j = 1:n_basis
+                if y >= min(Y) + gridsize_y * (j-1) & y < min(Y) + gridsize_y * j
+                    i
+                    j
+                    gt_grid(j, i) = 1;                
+                end
+            end
+        end
+    end
+    
+end
+
+figure(2)
+heatmap(gt_grid)
+
+error = gt_grid - output / mean(output, 'all') * mean(gt_grid, 'all');
+figure(3)
+heatmap(error)
+
+isomatrix = output.*gt_grid;
+N = nnz(isomatrix);
+isovalue = sum(isomatrix, 'all')/N
 
 
 
