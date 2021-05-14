@@ -12,6 +12,14 @@ For majority of Matlab code, Matlab2019A or whatever version.
 
 For Marching Cubes, Visualization, and Uniformly sampling oriented points from a PLY file, need to create a conda environment and install the following librarys.
 
+Scipy
+
+Skimage
+
+Trimesh
+
+Open3D
+
 
 # Some Results
 
