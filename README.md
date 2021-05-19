@@ -90,4 +90,7 @@ Version2 (run IterativeFoxSolver_v2, run MarchingCube.py, isovalue = 1.3747e-15)
 Version3 (run IterativeFoxSolver_v3, run MarchingCube.py, isovalue = 6.0054e-11) --res 128 --iter 10
 ![surface3](https://user-images.githubusercontent.com/33951209/118335803-47bc1e80-b4c5-11eb-9c7c-17248f58be32.jpg)
 
+Version4 (run IterativeFoxSolver_v4, , run MarchingCube.py isovalue = -1.7506e-11) --res 128 --iter 10
+![1](https://user-images.githubusercontent.com/33951209/118742776-e61dec00-b805-11eb-8cfe-209ba51f99ab.jpg)
+
 
