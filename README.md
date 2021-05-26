@@ -93,6 +93,11 @@ Version3 (run IterativeFoxSolver_v3, run MarchingCube.py, isovalue = 6.0054e-11)
 Version4 (run IterativeFoxSolver_v4, , run MarchingCube.py isovalue = -1.7506e-11) --res 128 --iter 10
 ![1](https://user-images.githubusercontent.com/33951209/118742776-e61dec00-b805-11eb-8cfe-209ba51f99ab.jpg)
 
+Results using sparse matrix + Direct Method
+![Slice2_64](https://user-images.githubusercontent.com/33951209/119586559-cf394580-bd81-11eb-9cb0-c591c8c98878.jpg)
+![SparseDirect](https://user-images.githubusercontent.com/33951209/119586565-d2cccc80-bd81-11eb-9033-cfdca60bf4b5.jpg)
+
+
 # Results of C++ code
 ![2](https://user-images.githubusercontent.com/33951209/118743313-fedad180-b806-11eb-8d30-e23750864277.jpg)
 
