@@ -94,7 +94,9 @@ Version4 (run IterativeFoxSolver_v4, , run MarchingCube.py isovalue = -1.7506e-1
 ![1](https://user-images.githubusercontent.com/33951209/118742776-e61dec00-b805-11eb-8cfe-209ba51f99ab.jpg)
 
 Results using sparse matrix + Direct Method
+![Slice1_64](https://user-images.githubusercontent.com/33951209/119586598-e415d900-bd81-11eb-9fce-8cf446f1544d.jpg)
 ![Slice2_64](https://user-images.githubusercontent.com/33951209/119586559-cf394580-bd81-11eb-9cb0-c591c8c98878.jpg)
+![Slice3_64](https://user-images.githubusercontent.com/33951209/119586612-eaa45080-bd81-11eb-8d8f-66fb9e2d9078.jpg)
 ![SparseDirect](https://user-images.githubusercontent.com/33951209/119586565-d2cccc80-bd81-11eb-9033-cfdca60bf4b5.jpg)
 
 
