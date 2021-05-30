@@ -81,23 +81,21 @@ Numerical Error (gt_grid - output/ mean(output, 'all') * mean(gt_grid, 'all'))
 
 # Some Results in 3D (The surface after marching cubes)
 
-Version1 (run IterativeFoxSolver_v1, run MarchingCube.py, isovalue = 4.3222e-11) --res 128 --iter 10  
-![surface1](https://user-images.githubusercontent.com/33951209/118334142-d7f86480-b4c1-11eb-8c47-375facd6e6ac.jpg)
-
-Version2 (run IterativeFoxSolver_v2, run MarchingCube.py, isovalue = 1.3747e-15) --res 128 --iter 10
-![surface2](https://user-images.githubusercontent.com/33951209/118334747-0cb8eb80-b4c3-11eb-95be-cf48a242506f.jpg)
-
-Version3 (run IterativeFoxSolver_v3, run MarchingCube.py, isovalue = 6.0054e-11) --res 128 --iter 10
-![surface3](https://user-images.githubusercontent.com/33951209/118335803-47bc1e80-b4c5-11eb-9c7c-17248f58be32.jpg)
-
-Version4 (run IterativeFoxSolver_v4, , run MarchingCube.py isovalue = -1.7506e-11) --res 128 --iter 10
-![1](https://user-images.githubusercontent.com/33951209/118742776-e61dec00-b805-11eb-8cfe-209ba51f99ab.jpg)
-
-Results using sparse matrix + Direct Method
+Results using sparse matrix + Direct Method. --res 64
 ![Slice1_64](https://user-images.githubusercontent.com/33951209/119586598-e415d900-bd81-11eb-9fce-8cf446f1544d.jpg)
 ![Slice2_64](https://user-images.githubusercontent.com/33951209/119586559-cf394580-bd81-11eb-9cb0-c591c8c98878.jpg)
 ![Slice3_64](https://user-images.githubusercontent.com/33951209/119586612-eaa45080-bd81-11eb-8d8f-66fb9e2d9078.jpg)
 ![SparseDirect](https://user-images.githubusercontent.com/33951209/119586565-d2cccc80-bd81-11eb-9033-cfdca60bf4b5.jpg)
+
+Results using sparse matrix + Gauss Seidel --res 64 --iter 100
+![Slice1_Gauss](https://user-images.githubusercontent.com/33951209/120114507-4da43780-c134-11eb-8a95-58568c80039c.jpg)
+![Slice2_Gauss](https://user-images.githubusercontent.com/33951209/120114519-5b59bd00-c134-11eb-8232-2e2147a48030.jpg)
+![Slice3_Gauss](https://user-images.githubusercontent.com/33951209/120114530-69a7d900-c134-11eb-869a-268db8bb5407.jpg)
+
+Results using sparse matrix + Multigrid   --res 64 --iter 10
+![Slice1_Multigrid](https://user-images.githubusercontent.com/33951209/120114512-53018200-c134-11eb-83ed-408b8d0696ef.jpg)
+![Slice2_Multigrid](https://user-images.githubusercontent.com/33951209/120114523-5f85da80-c134-11eb-8d9f-9ed666d3a265.jpg)
+![Slice3_Multigrid](https://user-images.githubusercontent.com/33951209/120114536-72001400-c134-11eb-91d6-765616700ff5.jpg)
 
 
 # Results of C++ code
