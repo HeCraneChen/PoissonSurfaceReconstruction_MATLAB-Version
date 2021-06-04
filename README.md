@@ -69,13 +69,15 @@ Results using sparse matrix + Multigrid. (run FoxSolverMultigrid.m) --res 64 --i
 ![Slice2_Multigrid](https://user-images.githubusercontent.com/33951209/120114523-5f85da80-c134-11eb-8d9f-9ed666d3a265.jpg)
 ![Slice3_Multigrid](https://user-images.githubusercontent.com/33951209/120114536-72001400-c134-11eb-91d6-765616700ff5.jpg)
 
-# Nonuniform handling
+# Nonuniform handling. 
 
-Results without special nonuniform handling for horse
+To decrease running time, only 1/4 of the original sampled points of the horse are used. Can be better if using all the points.
+
+Results without special nonuniform handling for horse (run FoxSolver_NonUniform.m)
 ![HorseSlice1_woKNN](https://user-images.githubusercontent.com/33951209/120843324-d5b68280-c522-11eb-9758-6398d3e7a047.jpg)
 ![HorseSlice3_woKNN](https://user-images.githubusercontent.com/33951209/120843344-db13cd00-c522-11eb-8d78-6e7e8523d5a9.jpg)
 
-Results with KNN density nonuniform handling for horse
+Results with KNN density nonuniform handling for horse (run FoxSolver_NonUniform.m)
 ![HorseSlice1](https://user-images.githubusercontent.com/33951209/120843416-ecf57000-c522-11eb-9042-68f5a65947e8.jpg)
 ![HorseSlice3](https://user-images.githubusercontent.com/33951209/120843426-ef57ca00-c522-11eb-9c93-c49d7986818e.jpg)
 
