@@ -97,27 +97,57 @@ for point_ind = 1:size(fox,1)
     nz = point(6) * sample_radius^2;
     % loop all the edges
     % store nx data on edges parallel to x axis
+%     "loop all the x edges"
     for i = 1.5:resx-0.5
-        for j = 1:resy
-            for k = 1:resz   
-                V(2*i,2*j,2*k) = Vfield(V(2*i,2*j,2*k), x, y, z, nx, i, j, k, gridsize, minX, minY, minZ, sample_radius);   
-             end            
+        if x >= minX + gridsize * (i-1) & x < minX + gridsize * (i + 1)
+%         if x >= minX + gridsize * (i-2) & x < minX + gridsize * (i + 2)
+            for j = 1:resy
+                if y >= minY + gridsize * (j-1) & y < minY + gridsize * (j + 1)
+%                 if y >= minY + gridsize * (j-2) & y < minY + gridsize * (j + 2)
+                    for k = 1:resz 
+                        if z >= minZ + gridsize * (k-1) & z < minZ + gridsize * (k + 1)
+%                         if z >= minZ + gridsize * (k-2) & z < minZ + gridsize * (k + 2)
+                            V(2*i,2*j,2*k) = Vfield(V(2*i,2*j,2*k), x, y, z, nx, i, j, k, gridsize, minX, minY, minZ, sample_radius); 
+                        end
+                    end 
+                end
+            end
         end
     end 
     % store ny data on edges parallel to y axis
-    for j = 1.5:resy-0.5
-        for i = 1:resx
-            for k = 1:resz   
-                V(2*i,2*j,2*k) = Vfield(V(2*i,2*j,2*k), x, y, z, ny, i, j, k, gridsize, minX, minY, minZ, density);   
-             end            
-        end
-    end    
+%      "loop all the y edges"
+     for j = 1.5:resy-0.5
+        if y >= minY + gridsize * (j-1) & y < minY + gridsize * (j + 1)
+%         if y >= minY + gridsize * (j-2) & y < minY + gridsize * (j + 2)
+            for i = 1:resx
+                if x >= minX + gridsize * (i-1) & x < minX + gridsize * (i + 1)
+%                 if x >= minX + gridsize * (i-2) & x < minX + gridsize * (i + 2)
+                    for k = 1:resz  
+                        if z >= minZ + gridsize * (k-1) & z < minZ + gridsize * (k + 1)
+%                         if z >= minZ + gridsize * (k-2) & z < minZ + gridsize * (k + 2)
+                            V(2*i,2*j,2*k) = Vfield(V(2*i,2*j,2*k), x, y, z, ny, i, j, k, gridsize, minX, minY, minZ, density);   
+                        end
+                    end 
+                end
+            end
+         end
+    end   
     % store nz data on edges parallel to z axis
+%     "loop all the z edges"
     for k = 1.5:resz-0.5
-        for i = 1:resx
-            for j = 1:resy  
-                V(2*i,2*j,2*k) = Vfield(V(2*i,2*j,2*k), x, y, z, nz, i, j, k, gridsize, minX, minY, minZ, density);   
-             end            
+        if z >= minZ + gridsize * (k-1) & z < minZ + gridsize * (k + 1)
+%         if z >= minZ + gridsize * (k-2) & z < minZ + gridsize * (k + 2)
+            for i = 1:resx
+                if x >= minX + gridsize * (i-1) & x < minX + gridsize * (i + 1)
+%                 if x >= minX + gridsize * (i-2) & x < minX + gridsize * (i + 2)
+                    for j = 1:resy  
+                        if y >= minY + gridsize * (j-1) & y < minY + gridsize * (j + 1)
+%                         if y >= minY + gridsize * (j-2) & y < minY + gridsize * (j + 2)
+                            V(2*i,2*j,2*k) = Vfield(V(2*i,2*j,2*k), x, y, z, nz, i, j, k, gridsize, minX, minY, minZ, density);   
+                        end
+                    end   
+                end
+            end
         end
     end 
 end
@@ -209,54 +239,6 @@ save('indicator_function.mat', 'output');
 
 
 
-% for point_ind = 1:size(fox,1)
-%     point = fox(point_ind, :);
-%     density = densities(1,point_ind);
-%     sigma_weight0 = (density - minKNN) / (maxKNN - minKNN); % the smaller, the denser; get NaN error if applying this to Sigma
-%     sigma_weight = 1 / (1 + exp(-density));
-%     all_sigma_weight0(point_ind) = sigma_weight0; % mode 0, median  0.0821, mean 0.1080, var 0.0113
-%     all_sigma_weight(point_ind) = sigma_weight; % mode 0.5004 , median  0.5052, mean 0.5067, var  3.9010e-05
-%     x = point(1);
-%     y = point(2);
-%     z = point(3);
-%     nx = point(4) * density;
-%     ny = point(5) * density;
-%     nz = point(6) * density;
-%     for i = 1:resx-1
-%         if x >= minX + gridsize * (i-1) & x < minX + gridsize * i
-% %           if x >= minX + gridsize * (i-2) & x < minX + gridsize * (i+2)
-%             for j = 1:resy-1
-% %                  if y >= minY + gridsize * (j-2) & y < minY + gridsize * (j+2)
-%                 if y >= minY + gridsize * (j-1) & y < minY + gridsize * j
-%                     for k = 1:resz-1
-% %                         if z >= minZ + gridsize * (k-2) & z < minZ + gridsize * (k+2)
-%                         if z >= minZ + gridsize * (k-1) & z < minZ + gridsize * k
-%                             i
-%                             j
-%                             k   
-%                             V(2*(i+0.5),2*j,2*k) = Vfield(V(2*(i+0.5),2*j,2*k), x, y, z, nx, ny, nz, i+0.5, j, k, gridsize, i, j, k, minX, minY, minZ, sigma_weight);  
-%                             V(2*i,2*(j+0.5),2*k) = Vfield(V(2*i,2*(j+0.5),2*k), x, y, z, nx, ny, nz, i, j+0.5, k, gridsize, i, j, k, minX, minY, minZ, sigma_weight); 
-%                             V(2*i,2*j,2*(k+0.5)) = Vfield(V(2*i,2*j,2*(k+0.5)), x, y, z, nx, ny, nz, i, j, k+0.5, gridsize, i, j, k, minX, minY, minZ, sigma_weight); 
-% 
-%                             V(2*(i+1-0.5),2*(j+1),2*k) = Vfield(V(2*(i+1-0.5),2*(j+1),2*k), x, y, z, nx, ny, nz, i+1-0.5, j+1, k, gridsize, i, j, k, minX, minY, minZ, sigma_weight); 
-%                             V(2*(i+1),2*(j+1-0.5),2*k) = Vfield(V(2*(i+1),2*(j+1-0.5),2*k), x, y, z, nx, ny, nz, i+1, j+1-0.5, k, gridsize, i, j, k, minX, minY, minZ, sigma_weight); 
-%                             V(2*(i+1),2*(j+1),2*(k+0.5)) = Vfield(V(2*(i+1),2*(j+1),2*(k+0.5)), x, y, z, nx, ny, nz, i+1, j+1, k+0.5, gridsize, i, j, k, minX, minY, minZ, sigma_weight); 
-% 
-%                             V(2*(i+1-0.5),2*(j),2*(k+1)) = Vfield(V(2*(i+1-0.5),2*(j),2*(k+1)), x, y, z, nx, ny, nz, i+1-0.5, j, k+1, gridsize, i, j, k, minX, minY, minZ, sigma_weight); 
-%                             V(2*(i+1),2*(j+0.5),2*(k+1)) = Vfield(V(2*(i+1),2*(j+0.5),2*(k+1)), x, y, z, nx, ny, nz, i+1, j+0.5, k+1, gridsize, i, j, k, minX, minY, minZ, sigma_weight);
-%                             V(2*(i+1),2*(j),2*(k+1-0.5)) = Vfield(V(2*(i+1),2*(j),2*(k+1-0.5)), x, y, z, nx, ny, nz, i+1, j, k+1-0.5, gridsize, i, j, k, minX, minY, minZ, sigma_weight); 
-% 
-%                             V(2*(i+0.5),2*(j+1),2*(k+1)) = Vfield(V(2*(i+0.5),2*(j+1),2*(k+1)), x, y, z, nx, ny, nz, i+0.5, j+1, k+1, gridsize, i, j, k, minX, minY, minZ, sigma_weight); 
-%                             V(2*(i),2*(j+1-0.5),2*(k+1)) = Vfield(V(2*(i),2*(j+1-0.5),2*(k+1)), x, y, z, nx, ny, nz, i, j+1-0.5, k+1, gridsize, i, j, k, minX, minY, minZ, sigma_weight); 
-%                             V(2*(i),2*(j+1),2*(k+1-0.5)) = Vfield(V(2*(i),2*(j+1),2*(k+1-0.5)), x, y, z, nx, ny, nz, i, j+1, k+1-0.5, gridsize, i, j, k, minX, minY, minZ, sigma_weight); 
-%                       end            
-%                     end
-%                 end
-%             end
-%         end
-%     end
-%     
-% end
 
 
 
