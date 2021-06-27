@@ -73,7 +73,7 @@ Results using sparse matrix + Multigrid. (run FoxSolverMultigrid.m) --res 64 --i
 
 To decrease running time, only 1/4 of the original sampled points of the horse are used. Can be better if using all the points.
 
-Results with edge vector field to handle nonuniform sampling
+Results with edge vector field to handle nonuniform sampling (5 by 5 grid considered)
 ![Horse1_0624](https://user-images.githubusercontent.com/33951209/123559463-fdc78900-d750-11eb-91cb-aaf2325a1e27.jpg)
 ![Horse3_0624](https://user-images.githubusercontent.com/33951209/123559464-00c27980-d751-11eb-84c4-2191e21caa9c.jpg)
 
