@@ -5,13 +5,12 @@
 
 % fox = readmatrix('./Data/fox.txt');
 horse = readmatrix('./Data/horse.txt');
-fox_sdf = readNPY('./Data/sdf_fox_64.npy');
 horse1 = horse(1:4:end,:);
-fox = horse1(:, 1:6);
-% fox = fox(:, 1:6);
-X = fox(:,1);
-Y = fox(:,2);
-Z = fox(:,3);
+shape = horse1(:, 1:6);
+% shape = fox(:, 1:6);
+X = shape(:,1);
+Y = shape(:,2);
+Z = shape(:,3);
 resx = 64; 
 resy = 64;
 resz = 64;
@@ -20,12 +19,11 @@ gridsize_x = (max(X) - min(X))/resx;
 gridsize_y = (max(Y) - min(Y))/resy;
 gridsize_z = (max(Z) - min(Z))/resz;
 gridsize = max([gridsize_x, gridsize_y, gridsize_z]);
-KNNradius = KNN(fox(:, 1:3),20);
+KNNradius = KNN(shape(:, 1:3),20);
 
 
 %% step2 find matrix form of Poisson equation (calculate A and b using Stencils)
 
-n_elements = n_intervals * n_intervals;
 n_basis = n_intervals+1;
 n_points = n_basis * n_basis * n_basis;
 
@@ -75,38 +73,32 @@ A_s = A_s + spdiags(B7,d7,n_points,n_points);
 % using the rasterized points to calculate b, then vectorize it into a
 % column vector
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%to be pondered%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % create a vector field
-all_sigma_weight = zeros(1,size(fox,1));
-all_sigma_weight0 = zeros(1,size(fox,1));
 v = zeros(n_intervals, n_intervals, n_intervals);
 V = zeros(2 * n_basis, 2 * n_basis, 2 * n_basis);
 minX = min(X) - 0.5 * gridsize;
 minY = min(Y) - 0.5 * gridsize;
 minZ = min(Z) - 0.5 * gridsize;
 % loop all the edges
-for point_ind = 1:size(fox,1) 
+for point_ind = 1:size(shape,1) 
     point_ind
-    point = fox(point_ind, :);
-    sample_radius = KNNradius(1,point_ind);
+    point = shape(point_ind, :);
+    sample_radius = 1 / KNNradius(1,point_ind);
     x = point(1);
     y = point(2);
     z = point(3);
-    nx = point(4) * sample_radius^2;
-    ny = point(5) * sample_radius^2;
-    nz = point(6) * sample_radius^2;
+    nx = point(4);
+    ny = point(5);
+    nz = point(6);
     % loop all the edges
     % store nx data on edges parallel to x axis
 %     "loop all the x edges"
     for i = 1.5:resx-0.5
-        if x >= minX + gridsize * (i-1) & x < minX + gridsize * (i + 1)
-%         if x >= minX + gridsize * (i-2) & x < minX + gridsize * (i + 2)
+        if x >= minX + gridsize * (i-2) & x < minX + gridsize * (i + 2)
             for j = 1:resy
-                if y >= minY + gridsize * (j-1) & y < minY + gridsize * (j + 1)
-%                 if y >= minY + gridsize * (j-2) & y < minY + gridsize * (j + 2)
+                if y >= minY + gridsize * (j-2) & y < minY + gridsize * (j + 2)
                     for k = 1:resz 
-                        if z >= minZ + gridsize * (k-1) & z < minZ + gridsize * (k + 1)
-%                         if z >= minZ + gridsize * (k-2) & z < minZ + gridsize * (k + 2)
+                        if z >= minZ + gridsize * (k-2) & z < minZ + gridsize * (k + 2)
                             V(2*i,2*j,2*k) = Vfield(V(2*i,2*j,2*k), x, y, z, nx, i, j, k, gridsize, minX, minY, minZ, sample_radius); 
                         end
                     end 
@@ -117,15 +109,12 @@ for point_ind = 1:size(fox,1)
     % store ny data on edges parallel to y axis
 %      "loop all the y edges"
      for j = 1.5:resy-0.5
-        if y >= minY + gridsize * (j-1) & y < minY + gridsize * (j + 1)
-%         if y >= minY + gridsize * (j-2) & y < minY + gridsize * (j + 2)
+        if y >= minY + gridsize * (j-2) & y < minY + gridsize * (j + 2)
             for i = 1:resx
-                if x >= minX + gridsize * (i-1) & x < minX + gridsize * (i + 1)
-%                 if x >= minX + gridsize * (i-2) & x < minX + gridsize * (i + 2)
+                if x >= minX + gridsize * (i-2) & x < minX + gridsize * (i + 2)
                     for k = 1:resz  
-                        if z >= minZ + gridsize * (k-1) & z < minZ + gridsize * (k + 1)
-%                         if z >= minZ + gridsize * (k-2) & z < minZ + gridsize * (k + 2)
-                            V(2*i,2*j,2*k) = Vfield(V(2*i,2*j,2*k), x, y, z, ny, i, j, k, gridsize, minX, minY, minZ, density);   
+                        if z >= minZ + gridsize * (k-2) & z < minZ + gridsize * (k + 2)
+                            V(2*i,2*j,2*k) = Vfield(V(2*i,2*j,2*k), x, y, z, ny, i, j, k, gridsize, minX, minY, minZ, sample_radius);   
                         end
                     end 
                 end
@@ -135,15 +124,12 @@ for point_ind = 1:size(fox,1)
     % store nz data on edges parallel to z axis
 %     "loop all the z edges"
     for k = 1.5:resz-0.5
-        if z >= minZ + gridsize * (k-1) & z < minZ + gridsize * (k + 1)
-%         if z >= minZ + gridsize * (k-2) & z < minZ + gridsize * (k + 2)
+        if z >= minZ + gridsize * (k-2) & z < minZ + gridsize * (k + 2)
             for i = 1:resx
-                if x >= minX + gridsize * (i-1) & x < minX + gridsize * (i + 1)
-%                 if x >= minX + gridsize * (i-2) & x < minX + gridsize * (i + 2)
+                if x >= minX + gridsize * (i-2) & x < minX + gridsize * (i + 2)
                     for j = 1:resy  
-                        if y >= minY + gridsize * (j-1) & y < minY + gridsize * (j + 1)
-%                         if y >= minY + gridsize * (j-2) & y < minY + gridsize * (j + 2)
-                            V(2*i,2*j,2*k) = Vfield(V(2*i,2*j,2*k), x, y, z, nz, i, j, k, gridsize, minX, minY, minZ, density);   
+                        if y >= minY + gridsize * (j-2) & y < minY + gridsize * (j + 2)
+                            V(2*i,2*j,2*k) = Vfield(V(2*i,2*j,2*k), x, y, z, nz, i, j, k, gridsize, minX, minY, minZ, sample_radius);   
                         end
                     end   
                 end
@@ -171,9 +157,7 @@ for i = 1:resx
 b = permute(b_grid, [3,2,1]);
 b = b(:);
 b_s = sparse(b);
-% b_grid_s = sparse(b_grid);
-% b_s = permute(b_grid_s, [3,2,1]);
-% b_s = b_s(:);
+
 
 figure(3)
 spy(A_s)
@@ -181,8 +165,14 @@ spy(A_s)
 
 %% step3 use direct method to solve Poisson equation
 "start solving the equation"
-% output = A \ b;
-output_s = A_s \ b_s;
+% direct solver
+% output_s = A_s \ b_s; 
+
+% multigrid solver
+for i = 1:10
+    i
+    u = multigrid3D(u, b_grid, gridsize);
+end
 "finished solving the equation"
 output = full(output_s);
 %% step4 visualize result
@@ -197,31 +187,11 @@ heatmap(slice2);
 figure(3)
 heatmap(slice3);
 
-stencil1 = slice1 > 0.005;
-stencil2 = slice2 > 0.005;
-stencil3 = slice3 > 0.005;
-stencil_sum = sum(slice1.*stencil1 + slice2.*stencil2 + slice3.*stencil3,'all');
-ele_num = sum(stencil1,'all') + sum(stencil2,'all') + sum(stencil3,'all');
-isovalue = stencil_sum / ele_num;
-
-
-
-% slice1_gt = squeeze(fox_sdf(n_intervals/2,:,:));
-% slice2_gt = squeeze(fox_sdf(:,n_intervals/2,:));
-% slice3_gt = squeeze(fox_sdf(:,:,n_intervals/2));
-% figure(4)
-% heatmap(slice1_gt);
-% figure(5)
-% heatmap(slice2_gt);
-% figure(6)
-% heatmap(slice3_gt);
 
 save('indicator_function.mat', 'output');
 
 
-% isomatrix = output.*gt_grid;
-% N = sum(gt_grid, 'all');
-% isovalue = sum(isomatrix, 'all')/N
+
 
 
 
